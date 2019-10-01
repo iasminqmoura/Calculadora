@@ -108,9 +108,12 @@ class FormMain(QMainWindow, Ui_MainWindow):
         secondNumber = float(self.resultDisplay.text())
 
         if self.op == '/':
-            labelNumber = self.firstNumber / secondNumber
-            newLabel = format(labelNumber, '.12g')
-            self.resultDisplay.setText(newLabel)
+            if secondNumber == 0:
+                str(self.resultDisplay.setText("Error!"))
+            else:
+                labelNumber = self.firstNumber / secondNumber
+                newLabel = format(labelNumber, '.12g')
+                self.resultDisplay.setText(newLabel)
 
         elif self.op == 'x':
             labelNumber = self.firstNumber * secondNumber
